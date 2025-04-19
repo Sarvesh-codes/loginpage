@@ -277,10 +277,16 @@
             var confirmPassword = document.getElementById('confirmPassword').value;
             var currentPassword = document.getElementById('currentPassword').value;
     
+            if (currentPassword === "" || newPassword === "" || confirmPassword === "") {
+                alert("Password cannot be null");
+                return false;
+            }
+
             if (password !== currentPassword) {
                 alert("Enter correct current password");
                 return false;
-            } else if (newPassword === confirmPassword) {
+            } 
+            else if (newPassword === confirmPassword) {
                 alert("Password changed successfully");
                 localStorage.setItem('password', newPassword);
                 password = newPassword;
