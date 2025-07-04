@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login page</title>
+    <title>10_07</title>
     <style>
 
         .page1 label{
@@ -62,7 +62,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             z-index: 1;
             width:320px;
-            height:420px;
+            height:auto;
         }
 
         .page2 label{
@@ -103,115 +103,120 @@
         </div>    
     </div>    
 
-    <div class="page2" id="pg2" style="display:none;">
-        <div>
+        <div class="page2" id="pg2" style="display:none;">
+            <div>
+                <h5 style="font-size: 20px; margin-top: 0px;">Settings</h5>
+                <p style="margin-top: -30px;">Add and edit details in this section</p>
+                <div class="container">
+                    <div  style="display: inline-block; margin-bottom: 20px;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhk7r0ysYUeoklEp9XpCCCvf346u8U2dBow&s" alt="Image">
+                    <h1 style=" margin-left:100px; margin-top: -60px;" id="d1"></h1>
+                    </div>
+                    <div>Email <div id="d2" style="margin-left: 150px; margin-top: -20px;"> </div></div>
+                    <div style="margin-top: 10px;">Phone No <div id="d3" style="margin-left: 150px; margin-top: -20px;"> </div></div>
+                    <div style="margin-top: 10px;">Address<div id="d4" style="margin-left: 150px; margin-top: -20px;"> </div></div>
+                    <div style="margin-top: 10px;">DOB<div id="bday" style="margin-left: 150px; margin-top: -20px;"> </div></div>
+                    <div style="margin-top: 30px;"><button type="button" onclick="openEditDetails()">Edit details</button></div>
+                </div>
+    
+                <div class="container" style="margin-top: -360px;">
+                    <h3 style="margin-top: -4px;">Security</h3>
+                    <div>Password <div id="d5" style="margin-left: 150px; margin-top: -20px;"><b>*********</b> </div></div>
+                    <div style="margin-top: 10px;">Last updated<div id="d6" style="margin-left: 150px; margin-top: -20px;">  </div></div>
+                    <div style="margin-top: 30px;"><button type="button" onclick="openPassword()" style="width: 150px;">Change password</button></div>
+                </div>
+    
+                <div class="container" style="margin-top:-360px;">
+                    <h3 style="margin-top: -4px;">Social Links</h3>
+                    <div>Linked In <div id="d7" style="margin-left: 150px; margin-top: -20px;"> </div></div>
+                    <div style="margin-top: 10px;">Instagram <div id="d8" style="margin-left: 150px; margin-top: -20px;"> </div></div>
+                    <div style="margin-top: 10px;">Youtube <div id="d9" style="margin-left: 150px; margin-top: -20px;"></div></div>
+                    <div style="margin-top: 10px;">Facebook <div id="d10" style="margin-left: 150px; margin-top: -20px;"></div></div>
+                    <div style="margin-top: 30px;"><button type="button" onclick="openEditForm()">Edit links</button></div>
+                </div>
+            </div>
+    
+    
+    
+            <div id="editDetails" class="edit-form">
+                <h3>Profile Details</h3>
+                <label for="profileName">Profile Name</label>
+                <input type="text" id="profileName" value="Sarvesh" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="email">Email</label>
+                <input type="text" id="email" value="sd@gmail.com" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="phoneNo">Phone No</label>
+                <input type="text" id="phoneNo" value="112-224-7799" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="address">Address</label>
+                <input type="text" id="address" value="A204 Adyar,Chennai-28" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="dob">DOB</label>
+                <input type="date" id="dob" value="2025-07-04" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <button onclick="saveDetailChanges()">Update</button>
+                <button onclick="closeEditDetails()">Cancel</button>
+            </div>
+    
+            <div id="changePassword" class="edit-form">
+                <h3>Change Password</h3>
+                <label for="currentPassword">Current password</label>
+                <input type="password" id="currentPassword" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="newPassword">New password</label>
+                <input type="password" id="newPassword" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" id="confirmPassword"  style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <button onclick="savePassword()">Update</button>
+                <button onclick="closePassword()">Cancel</button>
+            </div>
+    
+            <div id="editForm" class="edit-form">
+                <h3>Edit Links</h3>
+                <label for="linkedin">Linked In</label>
+                <input type="text" id="linkedin" value="https://in.linkedin.com/" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="instagram">Instagram</label>
+                <input type="text" id="instagram" value="https://www.instagram.com/" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="youtube">Youtube</label>
+                <input type="text" id="youtube" value="https://www.youtube.com/" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <label for="facebook">Facebook</label>
+                <input type="text" id="facebook" value="https://www.facebook.com/" style="width: 70%;padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
+                <button onclick="saveChanges()">Update</button>
+                <button onclick="closeEditForm()">Cancel</button>
+            </div>
+        </div>
+        
+        
+        <div style="display: none;">
             <h5 style="font-size: 20px; margin-top: 0px;">Settings</h5>
             <p style="margin-top: -30px;">Add and edit details in this section</p>
-            <div class="container">
-                <div  style="display: inline-block; margin-bottom: 20px;">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhk7r0ysYUeoklEp9XpCCCvf346u8U2dBow&s" alt="Image">
-                <h1 style=" margin-left:100px; margin-top: -60px;" id="d1"></h1>
-                </div>
-                <div>Email <div id="d2" style="margin-left: 150px; margin-top: -20px;"> </div></div>
-                <div style="margin-top: 10px;">Phone No <div id="d3" style="margin-left: 150px; margin-top: -20px;"> </div></div>
-                <div style="margin-top: 10px;">Address<div id="d4" style="margin-left: 150px; margin-top: -20px;"> </div></div>
-                <div style="margin-top: 30px;"><button type="button" onclick="openEditDetails()">Edit details</button></div>
-            </div>
-
-            <div class="container" style="margin-top: -360px;">
-                <h3 style="margin-top: -4px;">Security</h3>
-                <div>Password <div id="d5" style="margin-left: 150px; margin-top: -20px;"><b>*********</b> </div></div>
-                <div style="margin-top: 10px;">Last updated<div id="d6" style="margin-left: 150px; margin-top: -20px;">  </div></div>
-                <div style="margin-top: 30px;"><button type="button" onclick="openPassword()" style="width: 150px;">Change password</button></div>
-            </div>
-
-            <div class="container" style="margin-top:-360px;">
-                <h3 style="margin-top: -4px;">Social Links</h3>
-                <div>Linked In <div id="d7" style="margin-left: 150px; margin-top: -20px;"> </div></div>
-                <div style="margin-top: 10px;">Instagram <div id="d8" style="margin-left: 150px; margin-top: -20px;"> </div></div>
-                <div style="margin-top: 10px;">Youtube <div id="d9" style="margin-left: 150px; margin-top: -20px;"></div></div>
-                <div style="margin-top: 10px;">Facebook <div id="d10" style="margin-left: 150px; margin-top: -20px;"></div></div>
-                <div style="margin-top: 30px;"><button type="button" onclick="openEditForm()">Edit links</button></div>
-            </div>
+        
         </div>
-
-
-
-        <div id="editDetails" class="edit-form">
-            <h3>Profile Details</h3>
-            <label for="profileName">Profile Name</label>
-            <input type="text" id="profileName" value="Sarvesh" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <label for="email">Email</label>
-            <input type="text" id="email" value="sd@gmail.com" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <label for="phoneNo">Phone No</label>
-            <input type="text" id="phoneNo" value="112-224-7799" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <label for="address">Address</label>
-            <input type="text" id="address" value="A204 Adyar,Chennai-28" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <button onclick="saveDetailChanges()">Update</button>
-            <button onclick="closeEditDetails()">Cancel</button>
-        </div>
-
-        <div id="changePassword" class="edit-form">
-            <h3>Change Password</h3>
-            <label for="currentPassword">Current password</label>
-            <input type="password" id="currentPassword" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <label for="newPassword">New password</label>
-            <input type="password" id="newPassword" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <label for="confirmPassword">Confirm password</label>
-            <input type="password" id="confirmPassword"  style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <button onclick="savePassword()">Update</button>
-            <button onclick="closePassword()">Cancel</button>
-        </div>
-
-        <div id="editForm" class="edit-form">
-            <h3>Edit Links</h3>
-            <label for="linkedin">Linked In</label>
-            <input type="text" id="linkedin" value="https://in.linkedin.com/" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <label for="instagram">Instagram</label>
-            <input type="text" id="instagram" value="https://www.instagram.com/" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <label for="youtube">Youtube</label>
-            <input type="text" id="youtube" value="https://www.youtube.com/" style="width: 70%; padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <label for="facebook">Facebook</label>
-            <input type="text" id="facebook" value="https://www.facebook.com/" style="width: 70%;padding: 8px; margin-bottom: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;width:300px;"><br><br>
-            <button onclick="saveChanges()">Update</button>
-            <button onclick="closeEditForm()">Cancel</button>
-        </div>
-    </div>
     
     
-    <div style="display: none;">
-        <h5 style="font-size: 20px; margin-top: 0px;">Settings</h5>
-        <p style="margin-top: -30px;">Add and edit details in this section</p>
-    
-    </div>
-
-
     <script>
+
         var a1 = "Sarvesh";
         var a2 = "sd@gmail.com";
         var a3 = "112-224-7799";
         var a4 = "A204 Adyar, Chennai-28";
-    
+        var today=new Date().toISOString().split('T')[0];
+
         var password = "sd";
-    
+
         function checkdetails() {
             var username = document.getElementById("Username").value;
             var password1 = document.getElementById("password1").value;
-    
+
             var storedUsername = localStorage.getItem('profileName') || a1;
             var storedEmail = localStorage.getItem('email') || a2;
             var storedPassword = localStorage.getItem('password') || password;
-    
+
             if (username === "") {
                 alert("Enter username or email");
                 return false;
             }
-    
+
             if (password1 === "") {
                 alert("Enter password");
                 return false;
             }
-    
+
             if ((username === storedUsername || username === storedEmail) && password1 === storedPassword) {
                 alert("Login is successful");
                 document.getElementById('pg2').style.display = 'block';
@@ -221,111 +226,143 @@
                 return false;
             }
         }
-    
+
         function showPassword() {
-            alert("Your password is: " + password);
-        }
-    
-        document.getElementById('d1').innerHTML = a1;
-        document.getElementById('d2').innerHTML = a2;
-        document.getElementById('d3').innerHTML = a3;
-        document.getElementById('d4').innerHTML = a4;
-    
-        function createLink(containerId, href, textContent) {
-            var link = document.createElement('a');
-            link.href = href;
-            link.textContent = textContent;
-            link.target = '_blank';
-            document.getElementById(containerId).innerHTML = '';
-            document.getElementById(containerId).appendChild(link);
+            const storedDob = localStorage.getItem('dob') || today;
+            const enteredDob = prompt("Enter your Date of Birth (YYYY-MM-DD):");
+
+            if (enteredDob === null) return; // Cancel
+
+            if (enteredDob === storedDob) {
+                const currentPassword = localStorage.getItem('password') || password;
+                alert("Your password is: " + currentPassword);
+            } else {
+                alert("Incorrect DOB.");
+            }
         }
 
-        var currentdate = new Date();
+
+        var link1 = document.createElement('a');
+        link1.href = 'https://in.linkedin.com/';
+        link1.textContent = 'https://in.linkedin.com/';
+        link1.target = '_blank';
+        var container1 = document.getElementById('d7');
+        container1.appendChild(link1);
+
+        var link2 = document.createElement('a');
+        link2.href = 'https://www.instagram.com/';
+        link2.textContent = 'https://www.instagram.com/';
+        link2.target = '_blank';
+        var container2 = document.getElementById('d8');
+        container2.appendChild(link2);
+
+        var link3 = document.createElement('a');
+        link3.href = 'https://www.youtube.com/';
+        link3.textContent = 'https://www.youtube.com/';
+        link3.target = '_blank';
+        var container3 = document.getElementById('d9');
+        container3.appendChild(link3);
+
+        var link4 = document.createElement('a');
+        link4.href = 'https://www.facebook.com/';
+        link4.textContent = 'https://www.facebook.com/';
+        link4.target = '_blank';
+        var container4 = document.getElementById('d10');
+        container4.appendChild(link4);
+
+        var currentdate = new Date(); 
+        var datetime = "Last Sync: " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear() + " @ " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
         var datetime = new Date(2024, 1, 1, 0, 0, 0).toISOString().split('T')[0];
         document.getElementById('d6').innerHTML = JSON.stringify(datetime);
-    
+
         function openEditDetails() {
             document.getElementById('editDetails').style.display = 'block';
         }
-    
+
         function closeEditDetails() {
             document.getElementById('editDetails').style.display = 'none';
         }
-    
+
         function saveDetailChanges() {
             localStorage.setItem('profileName', document.getElementById("profileName").value);
             localStorage.setItem('email', document.getElementById("email").value);
             localStorage.setItem('phoneNo', document.getElementById("phoneNo").value);
             localStorage.setItem('address', document.getElementById("address").value);
+            localStorage.setItem('dob', document.getElementById("dob").value);
             document.getElementById("editDetails").style.display = "none";
             updateDisplay();
         }
-    
+
         function openPassword() {
             document.getElementById('changePassword').style.display = 'block';
             document.getElementById('currentPassword').value = '';
             document.getElementById('newPassword').value = '';
             document.getElementById('confirmPassword').value = '';
         }
-    
+
         function closePassword() {
             document.getElementById('changePassword').style.display = 'none';
         }
-    
+
         function savePassword() {
             var newPassword = document.getElementById('newPassword').value;
             var confirmPassword = document.getElementById('confirmPassword').value;
             var currentPassword = document.getElementById('currentPassword').value;
-    
-            if (currentPassword === "" || newPassword === "" || confirmPassword === "") {
-                alert("Password cannot be null");
-                return false;
-            }
 
             if (password !== currentPassword) {
                 alert("Enter correct current password");
                 return false;
-            } 
-            else if (newPassword === confirmPassword) {
+            } else if (newPassword === "") {
+                alert("New password cannot be empty");
+                return false;
+            } else if (newPassword !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            } else {
                 alert("Password changed successfully");
                 localStorage.setItem('password', newPassword);
                 password = newPassword;
-                var currentdate = new Date();
+                var currentdate = new Date(); 
                 var datetime = currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear() + " @ " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
                 var aster = '*'.repeat(newPassword.length);
                 localStorage.setItem('aster', aster);
                 localStorage.setItem('datetime', datetime);
                 closePassword();
                 updateDisplay();
-            } else {
-                alert("Passwords do not match");
-                return false;
             }
         }
-    
+
+
         function openEditForm() {
             document.getElementById('editForm').style.display = 'block';
         }
-    
+
         function closeEditForm() {
             document.getElementById('editForm').style.display = 'none';
         }
-    
+
         function saveChanges() {
             var linkedin = document.getElementById('linkedin').value;
             var instagram = document.getElementById('instagram').value;
             var youtube = document.getElementById('youtube').value;
             var facebook = document.getElementById('facebook').value;
 
-            localStorage.setItem('linkedin', linkedin);
-            localStorage.setItem('instagram', instagram);
-            localStorage.setItem('youtube', youtube);
-            localStorage.setItem('facebook', facebook);
+            link1.href = linkedin;
+            link1.textContent = linkedin;
 
-            updateDisplay();
+            link2.href = instagram;
+            link2.textContent = instagram;
+
+            link3.href = youtube;
+            link3.textContent = youtube;
+
+            link4.href = facebook;
+            link4.textContent = facebook;
+            
             closeEditForm();
+            updateDisplay();
         }
-    
+
         function updateDisplay() {
             document.getElementById("d1").innerText = localStorage.getItem('profileName') || "Sarvesh";
             a1 = localStorage.getItem('profileName') || a1;
@@ -335,49 +372,20 @@
             a3 = localStorage.getItem('phoneNo') || a3;
             document.getElementById("d4").innerText = localStorage.getItem('address') || "A204 Adyar, Chennai-28";
             a4 = localStorage.getItem('address') || a4;
+            const savedDob = localStorage.getItem('dob') || today;
+            document.getElementById("bday").innerText = savedDob;
+            document.getElementById("dob").value = savedDob
             document.getElementById("d5").innerText = localStorage.getItem('aster') || "*******";
-            document.getElementById("d6").innerText = localStorage.getItem('datetime') || "10.07.2024";
-    
-            var linkedin = localStorage.getItem('linkedin') || "https://in.linkedin.com/";
-            var instagram = localStorage.getItem('instagram') || "https://www.instagram.com/";
-            var youtube = localStorage.getItem('youtube') || "https://www.youtube.com/";
-            var facebook = localStorage.getItem('facebook') || "https://www.facebook.com/";
-
+            document.getElementById("d6").innerText = localStorage.getItem('datetime') || "10.07.2024"; 
             password = localStorage.getItem('password') || password;
 
-            var link1 = document.createElement('a');
-            link1.href = linkedin;
-            link1.textContent = linkedin;
-            link1.target = '_blank';
-            var container1 = document.getElementById('d7');
-            container1.innerHTML = ''; 
-            container1.appendChild(link1);
-
-            var link2 = document.createElement('a');
-            link2.href = instagram;
-            link2.textContent = instagram;
-            link2.target = '_blank';
-            var container2 = document.getElementById('d8');
-            container2.innerHTML = ''; 
-            container2.appendChild(link2);
-
-            var link3 = document.createElement('a');
-            link3.href = youtube;
-            link3.textContent = youtube;
-            link3.target = '_blank';
-            var container3 = document.getElementById('d9');
-            container3.innerHTML = ''; 
-            container3.appendChild(link3);
-
-            var link4 = document.createElement('a');
-            link4.href = facebook;
-            link4.textContent = facebook;
-            link4.target = '_blank';
-            var container4 = document.getElementById('d10');
-            container4.innerHTML = ''; 
-            container4.appendChild(link4);
+            //Set the updated values in the profile details popup
+            document.getElementById("profileName").value = a1;
+            document.getElementById("email").value = a2;
+            document.getElementById("phoneNo").value = a3;
+            document.getElementById("address").value = a4;
         }
-    
+
         window.onload = updateDisplay;
     </script>
 
